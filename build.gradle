@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'kr.entree.spigradle' version '2.4.2'
+}
+
+group = 'com.tisawesomeness.portalsuppressor'
+version = '0.0.1'
+
+sourceCompatibility = 1.17
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly spigot('1.19')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+
+test {
+    useJUnitPlatform()
+}
+
+runSpigot.dependsOn prepareSpigotPlugins
+
+spigot {
+    authors = ['Tis_awesomeness']
+    apiVersion = '1.19'
+    main = 'com.tisawesomeness.portalsuppressor.PortalSuppressor'
+}
